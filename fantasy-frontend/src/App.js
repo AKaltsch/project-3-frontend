@@ -18,10 +18,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-      <PlayerContainer  players={players} />
-
-      </header>
+      <div className="Player-Container">
+        <PlayerContainer  players={players} />
+      </div>
     </div>
   );
 }
