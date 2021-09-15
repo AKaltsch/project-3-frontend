@@ -27,7 +27,18 @@ function App() {
     console.log(teamTwo)
   }
 
-  //function handleSubmit
+  function handleSubmit([arr1, arr2]) {
+    fetch(myAPI, {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify([arr1, arr2]),
+    })
+    .then(res => res.json())
+    .then(([arr1, arr2]) => setTeams([...teams, [arr1, arr2]]))
+  }
 
   useEffect(() =>
     fetch(`${myAPI}/players`)
