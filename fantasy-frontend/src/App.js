@@ -18,6 +18,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1> The Flatiron Grid-Iron</h1>
       <div className="Player-Container">
         <PlayerContainer  players={players} />
       </div>

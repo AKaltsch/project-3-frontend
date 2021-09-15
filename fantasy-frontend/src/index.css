@@ -35,3 +35,7 @@ code {
   height: 12rem;
   width: auto;
 }
+.App h1 {
+  color: yellow;
+  text-shadow: 0.1em 0.1em 0.2em black
+}
