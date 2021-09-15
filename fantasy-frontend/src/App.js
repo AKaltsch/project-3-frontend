@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import PlayerContainer from './components/PlayerContainer'
 import TeamOneContainer from './components/TeamOneContainer'
 import TeamTwoContainer from './components/TeamTwoContainer'
+import TeamContainer from './components/TeamContainer';
 
 const myAPI = 'http://localhost:9292'
 
@@ -14,10 +15,7 @@ function App() {
   const [teamOne, setTeamOne] = useState([])
   const [teamTwo, setTeamTwo] = useState([])
 
-  // function handleOneDraft() {
-  //   console.log("team one")
-  //   return setOneDraft(oneDraft = !oneDraft)
-  // }
+  const [teams, setTeams] = useState([])
 
   function addToTeamOne(playerToAdd) {
     setTeamOne(([...teamOne, playerToAdd]))
@@ -29,24 +27,20 @@ function App() {
     console.log(teamTwo)
   }
 
+  //function handleSubmit
+
   useEffect(() =>
     fetch(`${myAPI}/players`)
       .then(res => res.json())
-      .then(data => setPlayers(data)), [])
+      .then(data => setPlayers(data)),
+    [])
 
 
 
   return (
     <div className="App">
       <h1> The Flatiron Grid-Iron</h1>
-      <h2>Team One</h2>
-      <div className="Team1-Container">
-        <TeamOneContainer players={teamOne}/>
-      </div>
-      <h2>Team Two</h2>
-      <div>
-        <TeamTwoContainer players={teamTwo}/>
-      </div>
+      <TeamContainer teamOne={teamOne} teamTwo={teamTwo} />
       <h2>Draftable Players:</h2>
       <div className="Player-Container">
         <PlayerContainer players={players} addToTeamOne={addToTeamOne} addToTeamTwo={addToTeamTwo} />
