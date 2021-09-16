@@ -62,13 +62,13 @@ h5 {
 }
 
 .playerForm {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-}
-
-.playerForm input {
-  margin: 5px 10px 5px 0;
+  /* display: flex; */
+  position: relative;
+  /* flex-flow: row wrap; */
+  /* align-items: center; */
+  /* text-align: center; */
+  /* margin-left: 50%; */
+  /* margin-right: 50%; */
 }
 
 .playerForm input {
@@ -84,3 +84,4 @@ h5 {
 .playerForm h2 {
  vertical-align: text-top;
 }
+

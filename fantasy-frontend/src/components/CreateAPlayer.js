@@ -22,10 +22,11 @@ export default function CreateAPlayer({handleSubmit}) {
     }
 
     return (
-        <div className='container'>
+        <div className='createContainer'>
+            <h2>Create a Player</h2>
             
             <form className='playerForm' onSubmit={onSubmit}>
-                <h2>Create a Player</h2>
+                
                 <input 
                     type='text'
                     placeholder='Enter player name...' 
