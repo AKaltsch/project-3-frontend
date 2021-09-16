@@ -16,7 +16,6 @@ function App() {
 
   const [teamToSubmit, setTeamToSubmit] = useState([])
 
-
   function addToTeamOne(playerToAdd) {
     fetch(`${myAPI}/players/${playerToAdd.id}`, {
       method: 'PATCH',
