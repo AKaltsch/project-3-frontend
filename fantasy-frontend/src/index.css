@@ -62,19 +62,17 @@ h5 {
 }
 
 .playerForm {
-  display: flex;
   flex-flow: row wrap;
-  align-items: center;
 }
 
-.playerForm input {
-  margin: 5px 10px 5px 0;
-}
 
 .playerForm input {
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
+  position: relative;
+  margin: auto;
+  width: 10%
 }
 
 .playerForm button:hover {
