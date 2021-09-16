@@ -1,6 +1,6 @@
 
 
-export default function TeamCard({ player }) {
+export default function TeamCard({ player, undraftPlayer }) {
     return (
         <div className="team-card">
             <div key={player.id}>
@@ -8,6 +8,7 @@ export default function TeamCard({ player }) {
                 <img src={player.image_url} />
                 <h4> Rating: {player.rating} </h4>
             </div>
+            <button onclick={() => undraftPlayer(player)}>Remove</button>
         </div>
     )
 }

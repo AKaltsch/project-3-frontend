@@ -30,6 +30,8 @@ function App() {
       .then(() => setTeamOne([...teamOne, playerToAdd]))
   }
 
+  const team1 = players.filter(player => player.team_id === 51)
+
 
   function addToTeamTwo(playerToAdd) {
     fetch(`${myAPI}/players/${playerToAdd.id}`, {
@@ -46,10 +48,33 @@ function App() {
   }
 
 
-//This is nonsense
-//Tessting
-//another 
-//one more
+  function undraftTeamOnePlayer(playerToRemove) {
+    fetch(`${myAPI}/players/${playerToRemove.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        team_id: null,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => setTeamOne(players.filter(player => player.id !== playerToRemove.id)))
+  }
+
+  function undraftTeamTwoPlayer(playerToRemove) {
+    fetch(`${myAPI}/players/${playerToRemove.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        team_id: null,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => setTeamTwo(players.filter(player => player.id !== playerToRemove.id)))
+  }
  
   function handleDelete(playerToDelete){
     fetch(`${myAPI}/players/${playerToDelete.id}`, {
@@ -95,8 +120,10 @@ function App() {
             </Route>
             <Route path="/teams">
               <TeamContainer
-                teamOne={teamOne}
+                teamOne={team1}
                 teamTwo={teamTwo}
+                undraftTeamTwoPlayer = {undraftTeamTwoPlayer}
+                undraftTeamOnePlayer = {undraftTeamOnePlayer}
               />
             </Route>
             <Route path="/players">
