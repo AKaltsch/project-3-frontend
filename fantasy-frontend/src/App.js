@@ -25,14 +25,13 @@ function App() {
   }
 
  
-  function handleDelete(id){
-    fetch(`${myAPI}/players/${id}`, {
+  function handleDelete(playerToDelete){
+    fetch(`${myAPI}/players/${playerToDelete.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then (() => setPlayers(players.filter(player => player.id !==id)))
+      .then (setPlayers(players.filter(player => player.id !== player.id)))
   }
-
 
 
   function handleSubmit(player) {
