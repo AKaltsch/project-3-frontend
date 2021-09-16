@@ -53,6 +53,7 @@ function App() {
         .then((data) => setPlayers(data))
     ,[],
   )
+  //new
 
   return (
     <Router>
