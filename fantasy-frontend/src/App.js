@@ -60,7 +60,7 @@ function App() {
         <main>
           <Switch>
             <Route exact path="/">
-              <CreateAPlayer handleSubmit={handleSubmit}/>
+              
             </Route>
             <Route path="/teams">
               <TeamContainer
@@ -71,6 +71,7 @@ function App() {
             <Route path="/players">
               <h2>Draftable Players:</h2>
               <div className="player-container">
+                <CreateAPlayer handleSubmit={handleSubmit}/>  
                 <PlayerContainer
                   players={players}
                   addToTeamOne={addToTeamOne}
