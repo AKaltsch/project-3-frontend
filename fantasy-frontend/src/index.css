@@ -62,6 +62,7 @@ h5 {
 }
 
 .playerForm {
+<<<<<<< HEAD
   /* display: flex; */
   position: relative;
   /* flex-flow: row wrap; */
@@ -70,11 +71,19 @@ h5 {
   /* margin-left: 50%; */
   /* margin-right: 50%; */
 }
+=======
+  flex-flow: row wrap;
+}
+
+>>>>>>> 293c8e6142c2ba864f2469b01dae5edfcfd43806
 
 .playerForm input {
   vertical-align: middle;
   margin: 5px 10px 5px 0;
   padding: 10px;
+  position: relative;
+  margin: auto;
+  width: 10%
 }
 
 .playerForm button:hover {

@@ -16,13 +16,38 @@ function App() {
 
   const [teamToSubmit, setTeamToSubmit] = useState([])
 
+
   function addToTeamOne(playerToAdd) {
-    setTeamOne([...teamOne, playerToAdd])
+    fetch(`${myAPI}/players/${playerToAdd.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        team_id: 51,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => setTeamOne([...teamOne, playerToAdd]))
   }
 
+
   function addToTeamTwo(playerToAdd) {
-    setTeamTwo([...teamTwo, playerToAdd])
+    fetch(`${myAPI}/players/${playerToAdd.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        team_id: 52,
+      }),
+    })
+      .then((res) => res.json())
+      .then(() => setTeamTwo([...teamTwo, playerToAdd]))
   }
+
+
+
 
  
   function handleDelete(playerToDelete){
@@ -53,7 +78,6 @@ function App() {
         .then((data) => setPlayers(data))
     ,[],
   )
-  //new
 
   return (
     <Router>
