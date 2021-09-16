@@ -24,13 +24,19 @@ function App() {
     setTeamTwo([...teamTwo, playerToAdd])
   }
 
-  // function handleSubmit(e) {
-  //   e.preventDefault()
-  //   console.log(e)
+ 
+  function handleDelete(id){
+    fetch(`${myAPI}/players/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then (() => setPlayers(players.filter(player => player.id !==id)))
+  }
+
 
 
   function handleSubmit(player) {
-    fetch(myAPI, {
+    fetch(`${myAPI}/players`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
@@ -76,6 +82,7 @@ function App() {
                   players={players}
                   addToTeamOne={addToTeamOne}
                   addToTeamTwo={addToTeamTwo}
+                  handleDelete={handleDelete}
                 />
               </div>
             </Route>

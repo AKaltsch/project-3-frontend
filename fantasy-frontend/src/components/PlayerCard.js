@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function PlayerCard({ player, addToTeamOne, addToTeamTwo }) {
+export default function PlayerCard({ player, addToTeamOne, addToTeamTwo, handleDelete }) {
 
     const [oneDraft, setOneDraft] = useState(false)
     const [twoDraft, setTwoDraft] = useState(false)
@@ -27,6 +27,7 @@ export default function PlayerCard({ player, addToTeamOne, addToTeamTwo }) {
                     <button className="team1Button" onClick={() => handleOneDraft()}>Team 1</button>
                     <button className="team2Button" onClick={() => handleTwoDraft()}>Team 2</button>
                 </span>
+                <button className="delete-button" onClick={() => handleDelete(player)}>Delete Player</button>
             </div>
         </div>)
     else {

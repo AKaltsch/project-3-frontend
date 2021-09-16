@@ -1,6 +1,6 @@
 import PlayerCard from './PlayerCard'
 
-export default function PlayerContainer({ players, addToTeamOne, addToTeamTwo }){
+export default function PlayerContainer({ players, addToTeamOne, addToTeamTwo, handleDelete }){
    
     return (
         players.map((player) => (
@@ -9,6 +9,7 @@ export default function PlayerContainer({ players, addToTeamOne, addToTeamTwo })
                 player = {player}
                 addToTeamOne = {addToTeamOne}
                 addToTeamTwo = {addToTeamTwo}
+                handleDelete = {handleDelete}
             />
         ))
     )}

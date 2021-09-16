@@ -60,3 +60,27 @@ h5 {
   color: yellow;
   text-shadow: 0.2em 0.2em 0.4em black
 }
+
+.playerForm {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.playerForm input {
+  margin: 5px 10px 5px 0;
+}
+
+.playerForm input {
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+}
+
+.playerForm button:hover {
+  background-color: rosybrown;
+}
+
+.playerForm h2 {
+ vertical-align: text-top;
+}
