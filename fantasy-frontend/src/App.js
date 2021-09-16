@@ -30,7 +30,7 @@ function App() {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then (setPlayers(players.filter(player => player.id !== player.id)))
+      .then (setPlayers(players.filter(player => player.id !== playerToDelete.id)))
   }
 
 
