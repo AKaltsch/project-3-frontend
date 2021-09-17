@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import PlayerContainer from './components/PlayerContainer'
 import TeamContainer from './components/TeamContainer'
 import CreateAPlayer from './components/CreateAPlayer'
+import About from './components/About'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const myAPI = 'http://localhost:9292'
@@ -14,7 +15,7 @@ function App() {
   const [teamOne, setTeamOne] = useState([])
   const [teamTwo, setTeamTwo] = useState([])
 
-  const [teamToSubmit, setTeamToSubmit] = useState([])
+  const [teamOneScores, setTeamOneScores] = useState(0)
 
   function addToTeamOne(playerToAdd) {
     fetch(`${myAPI}/players/${playerToAdd.id}`, {
@@ -23,7 +24,7 @@ function App() {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        team_id: 51,
+        team_id: 76,
       }),
     })
       .then((res) => res.json())
@@ -40,7 +41,7 @@ function App() {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        team_id: 52,
+        team_id: 6,
       }),
     })
       .then((res) => res.json())
@@ -78,13 +79,13 @@ function App() {
       //.then((player) => console.log(player))
       .then(() => setTeamTwo(teamTwo.filter(player => player.id !== playerToRemove.id)))
   }
- 
-  function handleDelete(playerToDelete){
+
+  function handleDelete(playerToDelete) {
     fetch(`${myAPI}/players/${playerToDelete.id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
-      .then (setPlayers(players.filter(player => player.id !== playerToDelete.id)))
+      .then(setPlayers(players.filter(player => player.id !== playerToDelete.id)))
   }
 
 
@@ -100,38 +101,51 @@ function App() {
       .then((player) => setPlayers([player, ...players]))
   }
 
+
   useEffect(
     () =>
       fetch(`${myAPI}/players`)
         .then((res) => res.json())
         .then((data) => setPlayers(data))
-    ,[],
+    , [],
   )
+
+
+  useEffect(
+    () =>
+      fetch(`${myAPI}/team/scores/76`)
+        .then((res) => res.json())
+        .then((data) => setTeamOneScores(data))
+    , [],
+  )
+
 
   return (
     <Router>
-       <h1> The Flatiron Grid-Iron</h1>
+      <h1> The Flatiron Grid-Iron</h1>
       <div className="App">
         <header className="app-header">
-          <Link to="/"> Create-A-Player </Link>|<Link to="/teams"> Teams </Link>|
+          <Link to="/"> About </Link>|<Link to="/teams"> Teams </Link>|
           <Link to="/players"> Players </Link>
         </header>
         <main>
           <Switch>
             <Route exact path="/">
-              
+              <About />
             </Route>
             <Route path="/teams">
               <TeamContainer
+                players={players}
                 teamOne={teamOne}
                 teamTwo={teamTwo}
-                undraftTeamTwoPlayer = {undraftTeamTwoPlayer}
-                undraftTeamOnePlayer = {undraftTeamOnePlayer}
+                undraftTeamTwoPlayer={undraftTeamTwoPlayer}
+                undraftTeamOnePlayer={undraftTeamOnePlayer}
+                teamOneScores={teamOneScores}
               />
             </Route>
             <Route path="/players">
               <div className="player-container">
-                <CreateAPlayer handleSubmit={handleSubmit}/>  
+                <CreateAPlayer handleSubmit={handleSubmit} />
                 <h2>Draftable Players:</h2>
                 <PlayerContainer
                   players={players}

@@ -5,7 +5,6 @@ export default function TeamCard({ player, undraftPlayer }) {
     function onClick(e){
         e.preventDefault();
         undraftPlayer(player)
-        console.log(player)
     }
 
     return (
@@ -16,6 +15,7 @@ export default function TeamCard({ player, undraftPlayer }) {
                 <h4> Rating: {player.rating} </h4>
             </div>
             <button onClick={(e) => onClick(e)}>Remove</button>
+
         </div>
     )
 }

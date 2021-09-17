@@ -1,8 +1,13 @@
 import TeamOneContainer from './TeamOneContainer'
 import TeamTwoContainer from './TeamTwoContainer'
 
-export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, undraftTeamTwoPlayer }) {
+export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, undraftTeamTwoPlayer, players, teamOneScores }) {
 
+
+    function handleClick(e){
+        e.preventDefault();
+        console.log(teamOneScores)
+    }
 
     return (
         < div >
@@ -21,7 +26,7 @@ export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, 
                     <TeamTwoContainer players={teamTwo} undraftTeamTwoPlayer={undraftTeamTwoPlayer} />
                 </div>
                 </fieldset>
-                <button>Compile Score</button>                
+                <button onClick={(e) => handleClick(e)}> Compile Score </button>
             </form>
         </div >
     )
