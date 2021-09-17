@@ -48,7 +48,7 @@ export default function CreateAPlayer({handleSubmit}) {
                     onChange={(e) => setRating(e.target.value)} 
                 />
                 <br />
-                <button type='submit' className="submitButton">Create Character</button>
+                <button type='submit' className="submitButton">Create Player</button>
             </form>
         </div>
     )
