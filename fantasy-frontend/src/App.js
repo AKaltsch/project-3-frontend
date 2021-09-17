@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import PlayerContainer from './components/PlayerContainer'
 import TeamContainer from './components/TeamContainer'
 import CreateAPlayer from './components/CreateAPlayer'
+import About from './components/About'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
 const myAPI = 'http://localhost:9292'
@@ -23,7 +24,7 @@ function App() {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        team_id: 51,
+        team_id: 5,
       }),
     })
       .then((res) => res.json())
@@ -40,7 +41,7 @@ function App() {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({
-        team_id: 52,
+        team_id: 6,
       }),
     })
       .then((res) => res.json())
@@ -99,6 +100,7 @@ function App() {
       .then((res) => res.json())
       .then((player) => setPlayers([player, ...players]))
   }
+ 
 
   useEffect(
     () =>
@@ -108,21 +110,30 @@ function App() {
     ,[],
   )
 
+  useEffect(
+    () =>
+      fetch(`${myAPI}/team/scores/5`)
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+      , [],
+  )
+
   return (
     <Router>
        <h1> The Flatiron Grid-Iron</h1>
       <div className="App">
         <header className="app-header">
-          <Link to="/"> Create-A-Player </Link>|<Link to="/teams"> Teams </Link>|
+          <Link to="/"> About </Link>|<Link to="/teams"> Teams </Link>|
           <Link to="/players"> Players </Link>
         </header>
         <main>
           <Switch>
             <Route exact path="/">
-              
+                <About />
             </Route>
             <Route path="/teams">
               <TeamContainer
+                players = {players}
                 teamOne={teamOne}
                 teamTwo={teamTwo}
                 undraftTeamTwoPlayer = {undraftTeamTwoPlayer}

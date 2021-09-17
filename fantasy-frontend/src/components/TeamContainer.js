@@ -1,8 +1,13 @@
 import TeamOneContainer from './TeamOneContainer'
 import TeamTwoContainer from './TeamTwoContainer'
 
-export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, undraftTeamTwoPlayer }) {
+export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, undraftTeamTwoPlayer, players }) {
 
+
+function teamScore(team){
+    console.log(team)
+
+}
 
     return (
         < div >
@@ -16,7 +21,7 @@ export default function TeamContainer({ teamOne, teamTwo, undraftTeamOnePlayer, 
                 <div className="Team2-Container">
                     <TeamTwoContainer players={teamTwo} undraftTeamTwoPlayer={undraftTeamTwoPlayer} />
                 </div>
-                <button type="submit">Submit Teams</button>
+                {/* <button onClick={playerRatings(players)}> Compile Score </button> */}
             </form>
         </div >
     )

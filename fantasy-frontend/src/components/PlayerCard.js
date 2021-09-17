@@ -6,7 +6,6 @@ export default function PlayerCard({ player, addToTeamOne, addToTeamTwo, handleD
     const [twoDraft, setTwoDraft] = useState(false)
 
     function handleOneDraft() {
-        console.log(player)
         addToTeamOne(player)
         setOneDraft(!oneDraft)
         

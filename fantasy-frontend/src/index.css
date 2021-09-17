@@ -108,3 +108,21 @@ h5 {
 a{
   color: blue;
 }
+
+.title-image{
+  height: 50%;
+  width: 50%;
+  margin-top: 10px
+}
+
+.about-info{
+  padding: 10px; 
+  line-height: 200%;
+  font-weight: bold
+}
+
+.disclaimer{
+  font-style: italic;
+  font-size: small;
+  color: darkblue;
+}
