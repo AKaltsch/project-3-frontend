@@ -8,7 +8,6 @@ export default function PlayerCard({ player, addToTeamOne, addToTeamTwo, handleD
     function handleOneDraft() {
         addToTeamOne(player)
         setOneDraft(!oneDraft)
-        console.log(player)
     }
 
     function handleTwoDraft() {
@@ -25,8 +24,8 @@ export default function PlayerCard({ player, addToTeamOne, addToTeamTwo, handleD
                 <h4> Rating: {player.rating} </h4>
                 <h5>Draft to:</h5>
                 <span>
-                    <button className="team1Button" onClick={() => handleOneDraft()}>Team 1</button>
-                    <button className="team2Button" onClick={() => handleTwoDraft()}>Team 2</button>
+                    <button className="teamButton" onClick={() => handleOneDraft()}>Team 1</button>
+                    <button className="teamButton" onClick={() => handleTwoDraft()}>Team 2</button>
                 </span>
                 <button className="delete-button" onClick={() => handleDelete(player)}>Delete Player</button>
             </div>

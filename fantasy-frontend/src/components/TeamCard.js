@@ -8,7 +8,7 @@ export default function TeamCard({ player, undraftPlayer }) {
                 <img src={player.image_url} />
                 <h4> Rating: {player.rating} </h4>
             </div>
-            <button onclick={() => undraftPlayer(player)}>Remove</button>
+            <button onClick={() => undraftPlayer(player)}>Remove</button>
         </div>
     )
 }

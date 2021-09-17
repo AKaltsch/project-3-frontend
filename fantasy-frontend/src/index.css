@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: red;
   
 }
 
@@ -48,9 +49,11 @@ code {
   height: 12rem;
   width: auto;
 }
-.App h1 {
+h1 {
   color: yellow;
-  text-shadow: 0.2em 0.2em 0.4em black
+  text-shadow: 0.2em 0.2em 0.4em black;
+  background: red;
+  text-align: center;
 }
 h5 {
   margin-bottom: 3px
@@ -63,6 +66,7 @@ h5 {
 
 .playerForm {
   flex-flow: row wrap;
+
 }
 
 
@@ -71,8 +75,10 @@ h5 {
   margin: 5px 10px 5px 0;
   padding: 10px;
   position: relative;
-  margin: auto;
-  width: 10%
+  margin: 5px;
+  border: 2px solid black;
+  border-radius: 8px;
+
 }
 
 .playerForm button:hover {
@@ -83,3 +89,22 @@ h5 {
  vertical-align: text-top;
 }
 
+.teamButton{
+  vertical-align: middle;
+  margin: 5px 5px 5px 0;
+  padding: 8px;
+}
+
+.delete-button{
+  vertical-align: middle;
+  margin: 5px 5px 5px 0;
+  padding: 8px;
+}
+
+.app-header a:hover{
+  color: yellow;
+}
+
+a{
+  color: blue;
+}
