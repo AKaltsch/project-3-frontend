@@ -47,8 +47,10 @@ function App() {
       .then(() => setTeamTwo([...teamTwo, playerToAdd]))
   }
 
+  const team2 = players.filter(player => player.team_id === 52)
 
   function undraftTeamOnePlayer(playerToRemove) {
+    //console.log(playerToRemove)
     fetch(`${myAPI}/players/${playerToRemove.id}`, {
       method: 'PATCH',
       headers: {
@@ -59,7 +61,7 @@ function App() {
       }),
     })
       .then((res) => res.json())
-      .then(() => setTeamOne(players.filter(player => player.id !== playerToRemove.id)))
+      .then(() => setTeamOne(teamOne.filter(player => player.id !== playerToRemove.id)))
   }
 
   function undraftTeamTwoPlayer(playerToRemove) {
@@ -73,7 +75,8 @@ function App() {
       }),
     })
       .then((res) => res.json())
-      .then(() => setTeamTwo(players.filter(player => player.id !== playerToRemove.id)))
+      //.then((player) => console.log(player))
+      .then(() => setTeamTwo(teamTwo.filter(player => player.id !== playerToRemove.id)))
   }
  
   function handleDelete(playerToDelete){
@@ -120,7 +123,7 @@ function App() {
             </Route>
             <Route path="/teams">
               <TeamContainer
-                teamOne={team1}
+                teamOne={teamOne}
                 teamTwo={teamTwo}
                 undraftTeamTwoPlayer = {undraftTeamTwoPlayer}
                 undraftTeamOnePlayer = {undraftTeamOnePlayer}
